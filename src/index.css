@@ -1,0 +1,14 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+body {
+    background-color: white;
+    color: black;
+}
+
+@layer utilities {
+    .custom-date-input::-webkit-calendar-picker-indicator {
+        filter: brightness(0) saturate(100%);
+        cursor: pointer;
+    }
+}
