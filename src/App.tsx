@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import type { Transaction } from "./types";
 import TransactionForm from "./components/TransactionForm";
 import TransactionList from "./components/TransactionList";
@@ -6,8 +6,15 @@ import Overview from "./components/Overview";
 import ExpensePieChart from "./components/ExpensePieChart";
 
 const App: React.FC = () => {
-    const [transactions, setTransactions] = useState<Transaction[]>([]);
+    const [transactions, setTransactions] = useState<Transaction[]>(() => {
+        const stored = localStorage.getItem("transactions"); 
+        return stored ? JSON.parse(stored) : [];             
+    });
     const [showForm, setShowForm] = useState<Boolean>(false);
+
+    useEffect(() => {
+        localStorage.setItem("transactions", JSON.stringify(transactions)); // <-- added
+    }, [transactions]);
 
     const addTransaction = (t: Transaction) => {
         setTransactions(prev => [...prev, t]);
