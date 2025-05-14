@@ -40,7 +40,7 @@ const TransactionForm: React.FC<Props> = ({ onAdd, setShowForm }) => {
             alert("Please fill all fields.");
             return;
         }
-        if (parseFloat(form.amount)<=0) {
+        if (parseFloat(form.amount) <= 0) {
             alert("Please check the amount entered before submitting.");
             return;
         }
@@ -66,7 +66,7 @@ const TransactionForm: React.FC<Props> = ({ onAdd, setShowForm }) => {
                     <div className="mb-4 flex flex-col">
                         <h3 className="font-bold text-lg mb-4 text-white">Add Transaction Details</h3>
                         <input name="date" type="date" max={new Date().toISOString().split("T")[0]} value={form.date} onChange={handleChange} className="p-2 m-2 bg-gray-100 rounded-sm custom-date-input" />
-                        
+
                         <select name="type" value={form.type} onChange={handleChange} className="p-2 m-2 bg-white rounded-sm">
                             <option value="Income">Income</option>
                             <option value="Expense">Expense</option>

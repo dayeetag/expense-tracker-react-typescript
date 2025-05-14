@@ -51,29 +51,29 @@ const TransactionList: React.FC<Props> = ({ transactions, onDelete }) => {
                 filteredTransactions.length > 0 ?
                     (
                         <div className="overflow-y-auto overflow-x-auto">
-                        <table className="min-w-full table-auto">
-                            <thead className="bg-teal-950 text-white">
-                                <tr>
-                                    <td className="p-2 rounded-tl-md">Date</td>
-                                    <td className="p-2">Transaction Type</td>
-                                    <td className="p-2">Category</td>
-                                    <td className="p-2">Description</td>
-                                    <td className="p-2 rounded-tr-md" colSpan={2}>Amount</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {filteredTransactions.map(t => (
-                                    <tr key={t.id} className="border border-gray-200">
-                                        <td className="p-2"> {formatDate(t.date)} </td>
-                                        <td className="p-2"> {t.type} </td>
-                                        <td className="p-2"> {t.category} </td>
-                                        <td className="p-2"> {t.description} </td>
-                                        <td className="p-2"> Rs. {t.amount.toFixed(2)} </td>
-                                        <td className="p-2"> <button onClick={() => onDelete(t.id)} className="bg-rose-800 text-white p-2 rounded-sm"> Delete </button> </td>
+                            <table className="min-w-full table-auto">
+                                <thead className="bg-teal-950 text-white">
+                                    <tr>
+                                        <td className="p-2 rounded-tl-md">Date</td>
+                                        <td className="p-2">Transaction Type</td>
+                                        <td className="p-2">Category</td>
+                                        <td className="p-2">Description</td>
+                                        <td className="p-2 rounded-tr-md" colSpan={2}>Amount</td>
                                     </tr>
-                                ))}
-                            </tbody>
-                        </table>
+                                </thead>
+                                <tbody>
+                                    {filteredTransactions.map(t => (
+                                        <tr key={t.id} className="border border-gray-200">
+                                            <td className="p-2"> {formatDate(t.date)} </td>
+                                            <td className="p-2"> {t.type} </td>
+                                            <td className="p-2"> {t.category} </td>
+                                            <td className="p-2"> {t.description} </td>
+                                            <td className="p-2"> Rs. {t.amount.toFixed(2)} </td>
+                                            <td className="p-2"> <button onClick={() => onDelete(t.id)} className="bg-rose-800 text-white p-2 rounded-sm"> Delete </button> </td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
                         </div>
                     ) :
                     (
